@@ -15,15 +15,6 @@ $APPLICATION->SetPageProperty("TITLE", Loc::getMessage('TITLE'));
     <div class="about-wrapper">
         <?php
         $APPLICATION->IncludeComponent(
-            'citfact:menu',
-            'inner',
-            [
-                'CODE_SUB_MENU' => 'USEFUL_INFORMATION',
-            ]
-        );
-        ?>
-        <?php
-        $APPLICATION->IncludeComponent(
             'citfact:specifications',
             'specification.wallpaper',
             [
