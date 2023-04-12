@@ -14,7 +14,10 @@ class Update
 
     public static function wallpapers($filePath = '')
     {
-        Loader::includeModule("nkhost.phpexcel");
+        if (!Loader::includeModule("nkhost.phpexcel")) {
+            echo 'Установите модуль nkhost.phpexcel - https://marketplace.1c-bitrix.ru/solutions/nkhost.phpexcel/';
+            die();
+        };
 
         require_once($GLOBALS['PHPEXCELPATH'] . '/PHPExcel/IOFactory.php');
 
@@ -74,7 +77,7 @@ class Update
         }
     }
 
-    protected static function getHigloadBlock() {
+    public static function getHigloadBlock() {
         $hl = new HLBlock();
 
         $specificationWallpapers = $hl->getHlEntityByName(self::HL_SPECIFICATIONS_WALLPAPERS);
