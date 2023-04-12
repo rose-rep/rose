@@ -30,18 +30,13 @@ $arPostFields = [
 foreach ($arPostFields as $field => $variable) {
     if (!empty($_FILES[$field]['name']) && check_bitrix_sessid()) {
         if ($field == "THP_WALLPAPERS") {
-            $uploadDir = $_SERVER["DOCUMENT_ROOT"] . '/upload/specifications/';
-            $uploadFile = $uploadDir . basename($_FILES[$field]['name']);
+            Update::wallpapers($_FILES[$field]['tmp_name']);
 
-            move_uploaded_file($_FILES[$field]['tmp_name'], $uploadFile);
-
-            Update::wallpapers($uploadFile);
-
-            unlink($uploadFile);
+            unlink($_FILES[$field]['tmp_name']);
 
             $uploadComplete = true;
         }
-        }
+    }
 }
 
 $aTabs = [

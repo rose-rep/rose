@@ -21,6 +21,7 @@ class HLBlock
     {
         $filter = array($field => $name);
         $hlBlock = HighloadBlockTable::getList(array('filter' => $filter))->fetch();
+        if (!$hlBlock) return;
         $obEntity = HighloadBlockTable::compileEntity($hlBlock);
         return $obEntity->getDataClass();
     }
