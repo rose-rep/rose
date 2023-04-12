@@ -1,0 +1,2 @@
+<?php
+$MESS["CITFACT_SITECORE_APPEALS_MANAGER_ANSWER"] = "есть ответ";
