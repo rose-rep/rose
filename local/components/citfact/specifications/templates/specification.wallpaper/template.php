@@ -13,20 +13,9 @@ Loc::loadMessages(__FILE__);
 
 $request = \Bitrix\Main\Application::getInstance()->getContext()->getRequest();
 ?>
-
 <div class="specifications static-wrap">
     <div class="static-actions">
         <div class="static-actions__top">
-            <div class="specifications-links specifications-links--mb-0">
-                <a href="<?= $arParams['WALLPAPERS_LINK']; ?>"
-                class="specifications-links__i<?= ($arParams['TAB'] == 'WALLPAPERS') ? ' specifications-links__i active' : '' ?>">
-                    <?= Loc::getMessage('WALLPAPER'); ?>
-                </a>
-                <a href="<?= $arParams['HOME_LINK']; ?>"
-                class="specifications-links__i<?= ($arParams['TAB'] == 'HOME') ? ' specifications-links__i active' : '' ?>">
-                    <?= Loc::getMessage('HOME'); ?>
-                </a>
-            </div>
             <button class="download-excel download-excel--with-filters" id="download_excel" type="button">
                 <span class="download-excel__text">
                     <?= Loc::getMessage('EXPORT'); ?>
@@ -44,7 +33,7 @@ $request = \Bitrix\Main\Application::getInstance()->getContext()->getRequest();
                         <label class="select-wrapper js-select-wrapper">
                             <select class="select js-select js-select-mark" autocomplete="off" name="tradeMark">
                                 <option value=""></option>
-                                <?php foreach ($arResult['TRADE_MARKS'] as $tradeMark) { ?>
+                                <?php foreach ($arResult['TRADEMARKS'] as $tradeMark) { ?>
                                     <option value="<?= $tradeMark; ?>" <?= $request->get('tradeMark') == $tradeMark ? 'selected' : ''; ?>>
                                         <?= $tradeMark; ?></a>
                                     </option>
@@ -130,9 +119,6 @@ $request = \Bitrix\Main\Application::getInstance()->getContext()->getRequest();
                     <div class="specifications-table__cell">
                         <?= GetMessage('PRICE'); ?>
                     </div>
-                    <div class="specifications-table__cell">
-                        <?= GetMessage('SITE_PRICE'); ?>
-                    </div>
                 </div>
                 <?php if ($arResult['IS_AJAX'] && !$arParams['IS_MOBILE']) $GLOBALS['APPLICATION']->RestartBuffer();
                 foreach ($arResult['ITEMS'] as $item) { ?>
@@ -155,49 +141,6 @@ $request = \Bitrix\Main\Application::getInstance()->getContext()->getRequest();
                                 </div>
                             <?php } ?>
                         <?php } ?>
-                        <div class="specifications-table__cell">
-                            <span>
-                                <?= Loc::getMessage("COATING_MATERIAL"); ?>
-                            </span>
-                            <?= $arResult['COATING_MATERIAL'][$item['UF_ARTICLE']] ?? '-'; ?>
-                        </div>
-                        <div class="specifications-table__cell">
-                            <span>
-                                <?= Loc::getMessage("BASE"); ?>
-                            </span>
-                            <?= $arResult['BASE'][$item['UF_ARTICLE']] ?? '-'; ?>
-                        </div>
-                        <div class="specifications-table__cell">
-                            <span>
-                                <?= Loc::getMessage("RAPPORT"); ?>
-                            </span>
-                            <?= $arResult['RAPPORT'][$item['UF_ARTICLE']] ?? '-'; ?>
-                        </div>
-                        <div class="specifications-table__cell">
-                            <span>
-                                <?= Loc::getMessage("DOCKING"); ?>
-                            </span>
-                            <?= $arResult['DOCKING'][$item['UF_ARTICLE']] ?? '-'; ?>
-                        </div>
-                        <div class="specifications-table__cell">
-                                <span>
-                                    <?= Loc::getMessage("UF_ARCHIVE"); ?>
-                                </span>
-                            <?= in_array($item['UF_ARTICLE'], $arResult['ARCHIVE'])
-                                ? Loc::getMessage("YES") : Loc::getMessage("NO"); ?>
-                        </div>
-                        <div class="specifications-table__cell">
-                                <span>
-                                    <?= Loc::getMessage("PRICE"); ?>
-                                </span>
-                            <?= $arResult['PRICES'][$item['UF_ARTICLE']] ?? '-'; ?>
-                        </div>
-                        <div class="specifications-table__cell">
-                                <span>
-                                    <?= Loc::getMessage("SITE_PRICE"); ?>
-                                </span>
-                            <?= $arResult['SITE_PRICES'][$item['UF_ARTICLE']] ?? '-'; ?>
-                        </div>
                     </div>
                 <?php }
                 if ($arResult['IS_AJAX'] && !$arParams['IS_MOBILE']) die();
@@ -221,7 +164,6 @@ $request = \Bitrix\Main\Application::getInstance()->getContext()->getRequest();
                             <?= $item['UF_NAME']; ?>
                         </div>
                         <div class="specifications-table__collapse toggle__collapse js-toggle-content">
-
                             <!-- Todo повторяющийся код -->
                             <?php foreach ($item as $code => $value) { ?>
                                 <?php if ($code != 'UF_NAME') { ?>
@@ -233,59 +175,13 @@ $request = \Bitrix\Main\Application::getInstance()->getContext()->getRequest();
                                     </div>
                                 <?php } ?>
                             <?php } ?>
-                            <div class="specifications-table__cell">
-                                <span>
-                                    <?= Loc::getMessage("COATING_MATERIAL"); ?>
-                                </span>
-                                <?= $arResult['COATING_MATERIAL'][$item['UF_ARTICLE']] ?? '-'; ?>
-                            </div>
-                            <div class="specifications-table__cell">
-                                <span>
-                                    <?= Loc::getMessage("BASE"); ?>
-                                </span>
-                                <?= $arResult['BASE'][$item['UF_ARTICLE']] ?? '-'; ?>
-                            </div>
-                            <div class="specifications-table__cell">
-                                <span>
-                                    <?= Loc::getMessage("RAPPORT"); ?>
-                                </span>
-                                <?= $arResult['RAPPORT'][$item['UF_ARTICLE']] ?? '-'; ?>
-                            </div>
-                            <div class="specifications-table__cell">
-                                <span>
-                                    <?= Loc::getMessage("DOCKING"); ?>
-                                </span>
-                                <?= $arResult['DOCKING'][$item['UF_ARTICLE']] ?? '-'; ?>
-                            </div>
-
-                            <div class="specifications-table__cell">
-                                <span>
-                                    <?= Loc::getMessage("UF_ARCHIVE"); ?>
-                                </span>
-                                <?= in_array($item['UF_ARTICLE'], $arResult['ARCHIVE'])
-                                    ? Loc::getMessage("YES") : Loc::getMessage("NO"); ?>
-                            </div>
-                            <div class="specifications-table__cell">
-                                <span>
-                                    <?= Loc::getMessage("PRICE"); ?>
-                                </span>
-                                <?= $arResult['PRICES'][$item['UF_ARTICLE']] ?? '-'; ?>
-                            </div>
-                            <div class="specifications-table__cell">
-                                <span>
-                                    <?= Loc::getMessage("SITE_PRICE"); ?>
-                                </span>
-                                <?= $arResult['SITE_PRICES'][$item['UF_ARTICLE']] ?? '-'; ?>
-                            </div>
                         </div>
                     </div>
                 <?php }
                 if ($arResult['IS_AJAX']) die();
                 ?>
             </div>
-
         </div>
-
         <div class="loader js-loader">
             <div class="loader-container">
                 <div></div>

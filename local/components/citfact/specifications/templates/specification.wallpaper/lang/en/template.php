@@ -30,5 +30,4 @@ $MESS["DOCKING"] = "Docking";
 $MESS["UF_ARCHIVE"] = "Archive";
 $MESS["YES"] = "Yes";
 $MESS["NO"] = "No";
-$MESS["PRICE"] = "RRP";
-$MESS["SITE_PRICE"] = "Retail price of the site";
+$MESS["PRICE"] = "Retail price";

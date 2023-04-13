@@ -19,6 +19,9 @@ class  Core
     const IBLOCK_CODE_PROJECTS = 'projects';
     const IBLOCK_CODE_AFFILIATES = 'affiliate';
 
+    const IBLOCK_CODE_CATALOG_ROSE_WALLPAPER = 'catalog__rose_wallpaper';
+    const PRICE_MIN_RETAIL_ID = 12;
+
     const CURRENCY_CODE = "RUB";
 
     private $curDir;

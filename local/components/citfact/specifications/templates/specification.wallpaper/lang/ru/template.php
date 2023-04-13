@@ -30,5 +30,4 @@ $MESS["DOCKING"] = "Стыковка";
 $MESS["UF_ARCHIVE"] = "Архивный";
 $MESS["YES"] = "Да";
 $MESS["NO"] = "Нет";
-$MESS["PRICE"] = "РРЦ";
-$MESS["SITE_PRICE"] = "Розничная цена сайта";
+$MESS["PRICE"] = "Розничная цена";

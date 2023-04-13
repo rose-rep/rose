@@ -19,12 +19,9 @@ $APPLICATION->SetPageProperty("TITLE", Loc::getMessage('TITLE'));
             'specification.wallpaper',
             [
                 'HL_BLOCK' => Update::getHigloadBlock(),
-                'TAB' => 'WALLPAPERS',
                 'PAGE_SIZE' => 15,
                 'PAGE' => $_GET['page'] ?: 1,
                 'IS_MOBILE' => isset($_GET['isMobile']),
-                'CACHE_TYPE' => 'N',
-                'CACHE_TIME' => 36000000
             ]
         );
         ?>
