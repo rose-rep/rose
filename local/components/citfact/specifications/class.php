@@ -6,7 +6,8 @@ if (!defined('B_PROLOG_INCLUDED') || B_PROLOG_INCLUDED !== true) {
 use Bitrix\Main\Loader;
 use Bitrix\Main\Localization\Loc;
 use Citfact\SiteCore\Core;
-use Citfact\SiteCore\Tools\HLBlock;
+use Bitrix\Main\IO\Directory;
+use Bitrix\Main\Application;
 
 Loc::loadMessages(__FILE__);
 
@@ -183,11 +184,13 @@ class SpecificationsComponent extends \CBitrixComponent
         $objWriter = new PHPExcel_Writer_Excel5($xls);
 
         $fileName = md5('wallpapers' . time());
-        $pathRel = "/upload/specifications/download/{$fileName}.xls";
-        $pathFull = $_SERVER['DOCUMENT_ROOT'] . $pathRel;
-        $objWriter->save($pathFull);
+        $dirRel = "/upload/specifications/download/";
+        $dir = Application::getDocumentRoot() . $dirRel;
+        if (!Directory::isDirectoryExists($dir))
+            Directory::createDirectory($dir);
+        $objWriter->save($dir . "{$fileName}.xls");
 
-        echo json_encode($pathRel);
+        echo json_encode($dirRel . "{$fileName}.xls");
     }
 
     protected function getSpecifications($pagination = false) {
