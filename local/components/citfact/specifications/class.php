@@ -31,7 +31,7 @@ class SpecificationsComponent extends \CBitrixComponent
 
         $this->prepareFilterData();
 
-        $this->arResult['ITEMS'] = $this->getSpecifications();
+        $this->arResult['ITEMS'] = $this->getSpecifications(true);
 
         $this->IncludeComponentTemplate();
 
