@@ -20,8 +20,10 @@ $request = \Bitrix\Main\Application::getInstance()->getContext()->getRequest();
                 <span class="download-excel__text">
                     <?= Loc::getMessage('EXPORT'); ?>
                 </span>
-                <svg class="download-excel__icon">
-                    <use href="<?= SITE_TEMPLATE_PATH; ?>/sprite.svg#excel"></use>
+                <svg class="download-excel__icon" fill="none" viewBox="0 0 23 26" id="excel" xmlns="http://www.w3.org/2000/svg">
+                    <path d="M4.18 1.436h13.06l5.26 6.567v15.863H4.18V1.436z" stroke="#1C2C33"/>
+                    <path fill="#fff" stroke="#1C2C33" d="M.5 12.039h12.8v12.846H.5z"/>
+                    <path d="M2.76 22.615l3.724-4.711v.914l-3.52-4.51h1.46l2.79 3.548-.577.012 2.778-3.56h1.394l-3.493 4.438v-.854l3.724 4.723H9.568L6.6 18.83h.563l-2.93 3.785H2.76z" fill="#1C2C33"/>
                 </svg>
             </button>
         </div>
@@ -59,8 +61,11 @@ $request = \Bitrix\Main\Application::getInstance()->getContext()->getRequest();
                         <div class="static-actions__filters-buttons">
                             <a href="<?= $APPLICATION->GetCurPage(); ?>"
                                class="button static-actions__filters-clear js-clear-selects">
-                                <svg class="static-actions__filters-clear-icon">
-                                    <use href="<?= SITE_TEMPLATE_PATH ?>/sprite.svg#close"></use>
+                                <svg class="static-actions__filters-clear-icon" viewBox="0 0 18 18" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                    <path d="M13.8486 3.9502L3.94914 13.8497" stroke-linecap="round"/>
+                                    <path d="M13.8486 3.9502L3.94914 13.8497" stroke-linecap="round"/>
+                                    <path d="M13.8486 13.8496L3.94914 3.95011" stroke-linecap="round"/>
+                                    <path d="M13.8486 13.8496L3.94914 3.95011" stroke-linecap="round"/>
                                 </svg>
                                 <span>
                                     <?= Loc::getMessage('CLEAR'); ?>
@@ -77,8 +82,9 @@ $request = \Bitrix\Main\Application::getInstance()->getContext()->getRequest();
                                name="wallpaperName" placeholder="<?= Loc::getMessage('SEARCH'); ?>"
                                value="<?= $request->get('wallpaperName'); ?>">
                         <button type="submit" class="static-search__btn">
-                            <svg>
-                                <use href="<?= SITE_TEMPLATE_PATH; ?>/sprite.svg#search"></use>
+                            <svg width="18" height="18" viewBox="0 0 18 18" xmlns="http://www.w3.org/2000/svg">
+                                <circle cx="8.24968" cy="8.20085" r="6.5" transform="rotate(-30 8.24968 8.20085)" />
+                                <path d="M12.817 17.1108C12.9551 17.3499 13.2609 17.4319 13.5 17.2938C13.7391 17.1557 13.8211 16.8499 13.683 16.6108L12.817 17.1108ZM12.183 14.0127L11.933 13.5797L11.067 14.0797L11.317 14.5127L12.183 14.0127ZM13.683 16.6108L12.183 14.0127L11.317 14.5127L12.817 17.1108L13.683 16.6108Z" />
                             </svg>
                         </button>
                     </form>
@@ -97,28 +103,11 @@ $request = \Bitrix\Main\Application::getInstance()->getContext()->getRequest();
                     <?php foreach (current($arResult['ITEMS']) as $code => $value) { ?>
                         <?php if ($code != 'UF_NAME') { ?>
                             <div class="specifications-table__cell <?= $code == 'UF_VOLUME' ? 'specifications-table__cell--big' : ''; ?>">
+                                <?/*= $code; */?><!--<br>-->
                                 <?= Loc::getMessage($code); ?>
                             </div>
                         <?php } ?>
                     <?php } ?>
-                    <div class="specifications-table__cell">
-                        <?= GetMessage('COATING_MATERIAL'); ?>
-                    </div>
-                    <div class="specifications-table__cell">
-                        <?= GetMessage('BASE'); ?>
-                    </div>
-                    <div class="specifications-table__cell">
-                        <?= GetMessage('RAPPORT'); ?>
-                    </div>
-                    <div class="specifications-table__cell">
-                        <?= GetMessage('DOCKING'); ?>
-                    </div>
-                    <div class="specifications-table__cell">
-                        <?= GetMessage('UF_ARCHIVE'); ?>
-                    </div>
-                    <div class="specifications-table__cell">
-                        <?= GetMessage('PRICE'); ?>
-                    </div>
                 </div>
                 <?php if ($arResult['IS_AJAX'] && !$arParams['IS_MOBILE']) $GLOBALS['APPLICATION']->RestartBuffer();
                 foreach ($arResult['ITEMS'] as $item) { ?>
@@ -153,8 +142,9 @@ $request = \Bitrix\Main\Application::getInstance()->getContext()->getRequest();
                 foreach ($arResult['ITEMS'] as $item) { ?>
                     <div class="specifications-table__row toggle js-toggle-wrap">
                         <div class="specifications-table__arr toggle__btn js-toggle">
-                            <svg>
-                                <use href="<?= SITE_TEMPLATE_PATH; ?>/sprite.svg#arrow-down"></use>
+                            <svg width="19" height="18" viewBox="0 0 19 18" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                <path d="M2.57031 4L9.57031 13L16.5703 4" stroke="black" stroke-linecap="round"/>
+                                <path d="M2.57031 4L9.57031 13L16.5703 4" stroke="black" stroke-linecap="round"/>
                             </svg>
                         </div>
                         <div class="specifications-table__cell">
