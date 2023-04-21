@@ -19,8 +19,9 @@ class SpecificationsComponent extends \CBitrixComponent
     public function executeComponent()
     {
         global $USER, $APPLICATION;
+        $this->request = Application::getInstance()->getContext()->getRequest();
 
-        if ($_REQUEST['downloadExcel'] == 'wallpapers') {
+        if ($this->request->get('downloadExcel') == 'wallpapers') {
             $APPLICATION->RestartBuffer();
             $this->downloadWallpapers();
             die();
@@ -47,18 +48,18 @@ class SpecificationsComponent extends \CBitrixComponent
             $this->arFilter[] = $nameFilter;
         }
 
-        if (!empty($_GET['tradeMark'])) {
-            $this->arFilter[] = ['UF_TRADEMARK' => $_GET['tradeMark']];
+        if (!empty($this->request->get('tradeMark'))) {
+            $this->arFilter[] = ['UF_TRADEMARK' => $this->request->get('tradeMark')];
         }
 
-        if (!empty($_GET['collection'])) {
-            $this->arFilter[] = ['UF_COLLECTION' => $_GET['collection']];
+        if (!empty($this->request->get('collection'))) {
+            $this->arFilter[] = ['UF_COLLECTION' => $this->request->get('collection')];
         }
     }
 
     private function checkNameFilter() {
-        if (!empty($_REQUEST['wallpaperName'])) {
-            $name = $_REQUEST['wallpaperName'];
+        if (!empty($this->request->get('wallpaperName'))) {
+            $name = $this->request->get('wallpaperName');
             $translName = $this->translite($name);
             return
                 [
@@ -102,8 +103,8 @@ class SpecificationsComponent extends \CBitrixComponent
         }
 
         $filter = [];
-        if (!empty($_GET['tradeMark'])) {
-            $filter = ['UF_TRADEMARK' => $_GET['tradeMark']];
+        if (!empty($this->request->get('tradeMark'))) {
+            $filter = ['UF_TRADEMARK' => $this->request->get('tradeMark')];
         }
 
         $specificationList = $specifications::getList([
