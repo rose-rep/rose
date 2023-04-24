@@ -33,19 +33,6 @@ $request = \Bitrix\Main\Application::getInstance()->getContext()->getRequest();
                 <form class="static-actions__filters-form" novalidate name="specification_search_params" action="<?= $APPLICATION->GetCurPage(); ?>"
                           method="get">
                         <label class="select-wrapper js-select-wrapper">
-                            <select class="select js-select js-select-mark" autocomplete="off" name="tradeMark">
-                                <option value=""></option>
-                                <?php foreach ($arResult['TRADEMARKS'] as $tradeMark) { ?>
-                                    <option value="<?= $tradeMark; ?>" <?= $request->get('tradeMark') == $tradeMark ? 'selected' : ''; ?>>
-                                        <?= $tradeMark; ?></a>
-                                    </option>
-                                <?php } ?>
-                            </select>
-                            <span class="select-name js-select-name">
-                                <?= Loc::getMessage('UF_TRADE_MARK'); ?>
-                            </span>
-                        </label>
-                        <label class="select-wrapper js-select-wrapper">
                             <select class="select js-select js-select-mark" autocomplete="off" name="collection">
                                 <option value=""></option>
                                 <?php foreach ($arResult['COLLECTIONS'] as $collection) { ?>
@@ -97,38 +84,24 @@ $request = \Bitrix\Main\Application::getInstance()->getContext()->getRequest();
             <!-- Todo desktop version при ресайзе не будет работать -->
             <div class="specifications-table js-catalog-infinity-scroll" data-user-agent="desktop">
                 <div class="specifications-table__row specifications-table__row--head specifications-table__row--sticky">
-                    <div class="specifications-table__cell">
-                        <?= GetMessage('UF_NAME'); ?>
-                    </div>
                     <?php foreach (current($arResult['ITEMS']) as $code => $value) { ?>
-                        <?php if ($code != 'UF_NAME') { ?>
-                            <div class="specifications-table__cell <?= $code == 'UF_VOLUME' ? 'specifications-table__cell--big' : ''; ?>">
-                                <?/*= $code; */?><!--<br>-->
-                                <?= Loc::getMessage($code); ?>
-                            </div>
-                        <?php } ?>
+                        <div class="specifications-table__cell <?= $code == 'UF_VOLUME' ? 'specifications-table__cell--big' : ''; ?>">
+                            <?/*= $code; */?><!--<br>-->
+                            <?= Loc::getMessage($code); ?>
+                        </div>
                     <?php } ?>
                 </div>
                 <?php if ($arResult['IS_AJAX'] && !$arParams['IS_MOBILE']) $GLOBALS['APPLICATION']->RestartBuffer();
                 foreach ($arResult['ITEMS'] as $item) { ?>
                     <div class="specifications-table__row">
-                        <div class="specifications-table__cell">
-                            <span>
-                                <?= Loc::getMessage("UF_NAME"); ?>
-                            </span>
-                            <?= $item['UF_NAME']; ?>
-                        </div>
-
                         <!-- Todo повторяющийся код -->
                         <?php foreach ($item as $code => $value) { ?>
-                            <?php if ($code != 'UF_NAME') { ?>
-                                <div class="specifications-table__cell <?= $code == 'UF_VOLUME' ? 'specifications-table__cell--big' : ''; ?>">
-                                        <span>
-                                            <?= Loc::getMessage($code); ?>
-                                        </span>
-                                    <?= $value; ?>
-                                </div>
-                            <?php } ?>
+                            <div class="specifications-table__cell <?= $code == 'UF_VOLUME' ? 'specifications-table__cell--big' : ''; ?>">
+                                    <span>
+                                        <?= Loc::getMessage($code); ?>
+                                    </span>
+                                <?= $value; ?>
+                            </div>
                         <?php } ?>
                     </div>
                 <?php }
@@ -147,23 +120,15 @@ $request = \Bitrix\Main\Application::getInstance()->getContext()->getRequest();
                                 <path d="M2.57031 4L9.57031 13L16.5703 4" stroke="black" stroke-linecap="round"/>
                             </svg>
                         </div>
-                        <div class="specifications-table__cell">
-                            <span>
-                                <?= Loc::getMessage("UF_NAME"); ?>
-                            </span>
-                            <?= $item['UF_NAME']; ?>
-                        </div>
                         <div class="specifications-table__collapse toggle__collapse js-toggle-content">
                             <!-- Todo повторяющийся код -->
                             <?php foreach ($item as $code => $value) { ?>
-                                <?php if ($code != 'UF_NAME') { ?>
-                                    <div class="specifications-table__cell <?= $code == 'UF_VOLUME' ? 'specifications-table__cell--big' : ''; ?>">
-                                        <span>
-                                            <?= Loc::getMessage($code); ?>
-                                        </span>
-                                        <?= $value; ?>
-                                    </div>
-                                <?php } ?>
+                                <div class="specifications-table__cell <?= $code == 'UF_VOLUME' ? 'specifications-table__cell--big' : ''; ?>">
+                                    <span>
+                                        <?= Loc::getMessage($code); ?>
+                                    </span>
+                                    <?= $value; ?>
+                                </div>
                             <?php } ?>
                         </div>
                     </div>
