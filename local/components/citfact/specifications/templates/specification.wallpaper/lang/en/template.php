@@ -6,6 +6,7 @@ $MESS["SEARCH"] = "Search";
 $MESS["EXPORT"] = "Upload to Excel";
 $MESS["CLEAR"] = "Clear";
 $MESS["SELECT"] = "Pick up";
+$MESS["SPECIFICATIONS"] = "Products' specifications";
 
 $MESS["UF_NAME"] = "Name";
 $MESS["UF_ARTICLE"] = "Article";

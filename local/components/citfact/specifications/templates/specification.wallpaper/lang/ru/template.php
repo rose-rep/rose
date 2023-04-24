@@ -6,6 +6,7 @@ $MESS["SEARCH"] = "Поиск";
 $MESS["EXPORT"] = "Выгрузить в Excel";
 $MESS["CLEAR"] = "Очистить";
 $MESS["SELECT"] = "Подобрать";
+$MESS["SPECIFICATIONS"] = "Технические характеристики продукции";
 
 $MESS["UF_NAME"] = "Наименование";
 $MESS["UF_ARTICLE"] = "Артикул";

@@ -14,7 +14,7 @@ Loc::loadMessages(__FILE__);
 $request = \Bitrix\Main\Application::getInstance()->getContext()->getRequest();
 ?>
 <div class="specifications static-wrap">
-    <h1>Технические характеристики продукции</h1>
+    <h1><?= Loc::getMessage('SPECIFICATIONS') ?></h1>
     <div class="static-actions">
         <div class="static-actions__container">
             <div class="static-actions__filters">
@@ -119,16 +119,24 @@ $request = \Bitrix\Main\Application::getInstance()->getContext()->getRequest();
                                 <path d="M2.57031 4L9.57031 13L16.5703 4" stroke="black" stroke-linecap="round"/>
                             </svg>
                         </div>
+                        <div class="specifications-table__cell">
+                            <span>
+                                <?= Loc::getMessage("UF_ARTICLE"); ?>
+                            </span>
+                            <?= $item['UF_ARTICLE']; ?>
+                        </div>
                         <div class="specifications-table__collapse toggle__collapse js-toggle-content">
                             <!-- Todo повторяющийся код -->
-                            <?php foreach ($item as $code => $value) { ?>
+                            <?php foreach ($item as $code => $value) {
+                                if ($code != 'UF_ARTICLE') { ?>
                                 <div class="specifications-table__cell <?= $code == 'UF_VOLUME' ? 'specifications-table__cell--big' : ''; ?>">
                                     <span>
                                         <?= Loc::getMessage($code); ?>
                                     </span>
                                     <?= $value; ?>
                                 </div>
-                            <?php } ?>
+                            <?php }
+                            } ?>
                         </div>
                     </div>
                 <?php }
