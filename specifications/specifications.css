@@ -935,7 +935,7 @@ input[type=search] {
 }
 
 .static-wrap {
-  padding: 2rem 2rem 0;
+  padding: 0 2rem;
 }
 
 .static-wrap h2 {
@@ -981,14 +981,6 @@ input[type=search] {
 }
 
 .static-actions {
-  margin-bottom: 2rem;
-}
-
-.static-actions__top {
-  display: flex;
-  flex-direction: column;
-  gap: 2rem;
-  overflow: hidden;
   margin-bottom: 2rem;
 }
 
@@ -1053,6 +1045,7 @@ input[type=search] {
   display: flex;
   align-items: center;
   justify-content: center;
+  margin-top: 1.1rem;
   padding: 1.25rem 2rem;
   gap: 1.5rem;
   border: 0.1rem dashed #1C2C33;
@@ -1064,11 +1057,17 @@ input[type=search] {
   font-size: 1.6rem;
   line-height: 2rem;
   color: #1C2C33;
+  white-space: nowrap;
 }
 
 .download-excel__icon {
   width: 2.5rem;
   height: 2.5rem;
+}
+
+.specifications h1 {
+  margin-bottom: 1.5rem;
+  font-size: 2.3rem !important;
 }
 
 .specifications-links {
@@ -1308,13 +1307,8 @@ input[type=search] {
   }
 
   .static-wrap {
-    padding-bottom: 2rem;
+    padding: 2rem;
     background-color: #fff;
-  }
-
-  .static-actions__top {
-    flex-direction: row;
-    margin-bottom: 3rem;
   }
 
   .static-actions__container {
@@ -1355,8 +1349,8 @@ input[type=search] {
   }
 
   .static-actions__filters-form {
-    grid-template-columns: 1fr 1fr auto;
-    flex: 1 0 70%;
+    grid-template-columns: minmax(20rem, 42rem) 40rem;
+    flex: 1 0 56%;
     align-items: end;
     gap: 1.6rem;
   }
@@ -1389,6 +1383,11 @@ input[type=search] {
 
   .download-excel--with-filters {
     margin-left: auto;
+  }
+
+  .specifications h1 {
+    margin-bottom: 2rem;
+    font-size: 3.6rem !important;
   }
 
   .specifications-links {

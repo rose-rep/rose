@@ -14,24 +14,13 @@ Loc::loadMessages(__FILE__);
 $request = \Bitrix\Main\Application::getInstance()->getContext()->getRequest();
 ?>
 <div class="specifications static-wrap">
+    <h1>Технические характеристики продукции</h1>
     <div class="static-actions">
-        <div class="static-actions__top">
-            <button class="download-excel download-excel--with-filters" id="download_excel" type="button">
-                <span class="download-excel__text">
-                    <?= Loc::getMessage('EXPORT'); ?>
-                </span>
-                <svg class="download-excel__icon" fill="none" viewBox="0 0 23 26" id="excel" xmlns="http://www.w3.org/2000/svg">
-                    <path d="M4.18 1.436h13.06l5.26 6.567v15.863H4.18V1.436z" stroke="#1C2C33"/>
-                    <path fill="#fff" stroke="#1C2C33" d="M.5 12.039h12.8v12.846H.5z"/>
-                    <path d="M2.76 22.615l3.724-4.711v.914l-3.52-4.51h1.46l2.79 3.548-.577.012 2.778-3.56h1.394l-3.493 4.438v-.854l3.724 4.723H9.568L6.6 18.83h.563l-2.93 3.785H2.76z" fill="#1C2C33"/>
-                </svg>
-            </button>
-        </div>
         <div class="static-actions__container">
             <div class="static-actions__filters">
                 <div class="static-actions__filters-container">
-                <form class="static-actions__filters-form" novalidate name="specification_search_params" action="<?= $APPLICATION->GetCurPage(); ?>"
-                          method="get">
+                    <form class="static-actions__filters-form" novalidate name="specification_search_params" action="<?= $APPLICATION->GetCurPage(); ?>"
+                              method="get">
                         <label class="select-wrapper js-select-wrapper">
                             <select class="select js-select js-select-mark" autocomplete="off" name="collection">
                                 <option value=""></option>
@@ -75,6 +64,16 @@ $request = \Bitrix\Main\Application::getInstance()->getContext()->getRequest();
                             </svg>
                         </button>
                     </form>
+                    <button class="download-excel download-excel--with-filters" id="download_excel" type="button">
+                        <span class="download-excel__text">
+                            <?= Loc::getMessage('EXPORT'); ?>
+                        </span>
+                        <svg class="download-excel__icon" fill="none" viewBox="0 0 23 26" id="excel" xmlns="http://www.w3.org/2000/svg">
+                            <path d="M4.18 1.436h13.06l5.26 6.567v15.863H4.18V1.436z" stroke="#1C2C33"/>
+                            <path fill="#fff" stroke="#1C2C33" d="M.5 12.039h12.8v12.846H.5z"/>
+                            <path d="M2.76 22.615l3.724-4.711v.914l-3.52-4.51h1.46l2.79 3.548-.577.012 2.778-3.56h1.394l-3.493 4.438v-.854l3.724 4.723H9.568L6.6 18.83h.563l-2.93 3.785H2.76z" fill="#1C2C33"/>
+                        </svg>
+                    </button>
                 </div>
             </div>
         </div>
