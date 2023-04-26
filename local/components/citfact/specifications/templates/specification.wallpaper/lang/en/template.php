@@ -19,6 +19,7 @@ $MESS["UF_COLOR"] = "Color";
 $MESS["UF_RULON_BARCODE"] = "Roll barcode";
 $MESS["UF_BOX_AMOUNT"] = "Quantity in a box, roll";
 $MESS["UF_WEIGHT"] = "Roll weight, kg";
+$MESS["UF_RULON_WEIGHT"] = "Roll weight, kg";
 $MESS["UF_BOX_WEIGHT"] = "Box weight, kg";
 $MESS["UF_VOLUME"] = "Box volume, factory data, cube. m";
 $MESS["UF_PALLET_AMOUNT"] = "Quantity per pallet, roll";

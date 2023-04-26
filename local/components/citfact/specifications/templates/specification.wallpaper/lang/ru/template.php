@@ -19,6 +19,7 @@ $MESS["UF_COLOR"] = "Цвет";
 $MESS["UF_RULON_BARCODE"] = "Штрих код рулона";
 $MESS["UF_BOX_AMOUNT"] = "Количество в коробке, рул.";
 $MESS["UF_WEIGHT"] = "Вес рулона, кг";
+$MESS["UF_RULON_WEIGHT"] = "Вес рулона, кг";
 $MESS["UF_BOX_WEIGHT"] = "Вес коробки, кг";
 $MESS["UF_VOLUME"] = "Объем коробки, данные фабрики, куб. м";
 $MESS["UF_PALLET_AMOUNT"] = "Кол-во на паллете, рул";
